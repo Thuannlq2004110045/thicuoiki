@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -57,8 +58,18 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.quanLySieuThiDataSet = new GUI.QuanLySieuThiDataSet();
+            this.tblStaffBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tblStaffTableAdapter = new GUI.QuanLySieuThiDataSetTableAdapters.tblStaffTableAdapter();
+            this.idNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenNVDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tuoiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sDTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLySieuThiDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStaffBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -126,6 +137,7 @@
             this.button3.TabIndex = 34;
             this.button3.Text = "In hóa đơn";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -195,14 +207,23 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idNVDataGridViewTextBoxColumn,
+            this.tenNVDataGridViewTextBoxColumn,
+            this.tuoiDataGridViewTextBoxColumn,
+            this.sDTDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.tblStaffBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(685, 128);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(639, 333);
+            this.dataGridView1.Size = new System.Drawing.Size(674, 333);
             this.dataGridView1.TabIndex = 30;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // label9
             // 
@@ -339,6 +360,61 @@
             this.textBox6.Size = new System.Drawing.Size(239, 33);
             this.textBox6.TabIndex = 78;
             // 
+            // quanLySieuThiDataSet
+            // 
+            this.quanLySieuThiDataSet.DataSetName = "QuanLySieuThiDataSet";
+            this.quanLySieuThiDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tblStaffBindingSource
+            // 
+            this.tblStaffBindingSource.DataMember = "tblStaff";
+            this.tblStaffBindingSource.DataSource = this.quanLySieuThiDataSet;
+            // 
+            // tblStaffTableAdapter
+            // 
+            this.tblStaffTableAdapter.ClearBeforeFill = true;
+            // 
+            // idNVDataGridViewTextBoxColumn
+            // 
+            this.idNVDataGridViewTextBoxColumn.DataPropertyName = "idNV";
+            this.idNVDataGridViewTextBoxColumn.HeaderText = "idNV";
+            this.idNVDataGridViewTextBoxColumn.MinimumWidth = 3;
+            this.idNVDataGridViewTextBoxColumn.Name = "idNVDataGridViewTextBoxColumn";
+            this.idNVDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idNVDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // tenNVDataGridViewTextBoxColumn
+            // 
+            this.tenNVDataGridViewTextBoxColumn.DataPropertyName = "TenNV";
+            this.tenNVDataGridViewTextBoxColumn.HeaderText = "TenNV";
+            this.tenNVDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tenNVDataGridViewTextBoxColumn.Name = "tenNVDataGridViewTextBoxColumn";
+            this.tenNVDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // tuoiDataGridViewTextBoxColumn
+            // 
+            this.tuoiDataGridViewTextBoxColumn.DataPropertyName = "Tuoi";
+            this.tuoiDataGridViewTextBoxColumn.HeaderText = "Tuoi";
+            this.tuoiDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tuoiDataGridViewTextBoxColumn.Name = "tuoiDataGridViewTextBoxColumn";
+            this.tuoiDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // sDTDataGridViewTextBoxColumn
+            // 
+            this.sDTDataGridViewTextBoxColumn.DataPropertyName = "SDT";
+            this.sDTDataGridViewTextBoxColumn.HeaderText = "SDT";
+            this.sDTDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sDTDataGridViewTextBoxColumn.Name = "sDTDataGridViewTextBoxColumn";
+            this.sDTDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.Width = 125;
+            // 
             // FormBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -375,6 +451,8 @@
             this.Load += new System.EventHandler(this.FormBanHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLySieuThiDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblStaffBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +489,13 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
+        private QuanLySieuThiDataSet quanLySieuThiDataSet;
+        private System.Windows.Forms.BindingSource tblStaffBindingSource;
+        private QuanLySieuThiDataSetTableAdapters.tblStaffTableAdapter tblStaffTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idNVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenNVDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tuoiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sDTDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
     }
 }

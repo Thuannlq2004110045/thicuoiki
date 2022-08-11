@@ -42,11 +42,30 @@ namespace GUI
 
         private void FormBanHang_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'quanLySieuThiDataSet.tblStaff' table. You can move, or remove it, as needed.
+            this.tblStaffTableAdapter.Fill(this.quanLySieuThiDataSet.tblStaff);
             FormLogin formLogin = new FormLogin();
             label1.Text = tenNV;
+            label3.Text = DateTime.Now.ToString();
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FormHoaDon formHoaDon = new FormHoaDon(textBox3.Text , label3.Text, label11.Text, dataGridView1);
+            formHoaDon.ShowDialog();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
