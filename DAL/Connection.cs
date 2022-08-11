@@ -11,7 +11,7 @@ namespace DAL
         public static SqlConnection getConnection()
         {
        
-             string strConnection = @"Data Source=ASUS-TUF;Initial Catalog=QuanLySieuThi;User ID=sa;Password=123";
+             string strConnection = @"Data Source=MSI;Initial Catalog=QuanLySieuThi;User ID=sa;Password=123";
              return new SqlConnection(strConnection);
 
         }

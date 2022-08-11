@@ -42,5 +42,20 @@ namespace BLL
             return true;
 
         }
+
+        public bool updateAccount(string username, string password)
+        {
+            Account account = new Account(username, password, "User");
+            string query = "UPDATE tblAccount" +
+                " SET username = @username, password = @password" +
+                " WHERE username = @username";
+            AccountDAL accountDAL = new AccountDAL();
+            if (accountDAL.Command(account, query))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
