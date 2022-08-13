@@ -68,10 +68,10 @@ namespace BLL
             return dataTable;
         }
 
-        public DataTable selectCondition(string tenNV)
+        public DataTable selectStaffName(string account)
         {
             QuerySelect querySelect = new QuerySelect();
-            string query = "SELECT * FROM tblStaff WHERE tenNV like N'%" + tenNV + "%'";
+            string query = "SELECT tenNV FROM tblStaff WHERE username = N'%" + account + "%'";
             DataTable dataTable = querySelect.Select(query);
             return dataTable;
 

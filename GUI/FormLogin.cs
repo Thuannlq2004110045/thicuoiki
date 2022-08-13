@@ -58,6 +58,7 @@ namespace GUI
             {
                 MessageBox.Show("Đăng nhập tài khoản " + txtBoxTaiKhoan.Text + " thành công", "Thông báo", MessageBoxButtons.OK);
                 this.Hide();
+
                 FormBanHang formBanHang = new FormBanHang(txtBoxTaiKhoan.Text);
                 formBanHang.Show();
                 isExit = false;

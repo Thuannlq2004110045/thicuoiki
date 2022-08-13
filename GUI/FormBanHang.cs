@@ -18,6 +18,8 @@ namespace GUI
         DataTable dt;
 
         int tongTienOrder = 0;
+        int tienTraLai = 0;
+        int tienKhachDua = 0;
         ProductBLL productBLL = new ProductBLL();
         public FormBanHang(string tenNV)
         {
@@ -38,8 +40,9 @@ namespace GUI
                 MessageBox.Show("Tiền khách đưa không đủ!!!","Thông báo");
                 return;
             }
-            int tienTralai = int.Parse(textBox2.Text) - tongTienOrder;
-            textBox1.Text = tienTralai.ToString();
+            tienKhachDua = int.Parse(textBox2.Text);
+            tienTraLai = tienKhachDua - tongTienOrder;
+            textBox1.Text = tienTraLai.ToString();
             
 
         }
@@ -222,7 +225,13 @@ namespace GUI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            productBLL.ExportFile(dt,"sheett1","Hóa đơn mua hàng");
+            if(dataGridView1.Rows.Count < 2)
+            {
+                MessageBox.Show("Hóa đơn phải có ít nhất 1 sản phẩm");
+                return;
+            }
+            productBLL.ExportFile(dt,tenNV,tongTienOrder,tienKhachDua,tienTraLai);
+            
         }
     }
 

@@ -99,7 +99,7 @@ namespace BLL
             return tongTienOrder;
         }
 
-        public void ExportFile(DataTable dataTable, string sheetName, string title)
+        public void ExportFile(DataTable dataTable, string tenNV,int tongTienHang,int tienKhachDua,int tienThoiLai)
         {
             //Tạo các đối tượng Excel
 
@@ -129,14 +129,14 @@ namespace BLL
 
             oSheet = ( Excel.Worksheet)oSheets.get_Item(1);
 
-            oSheet.Name = sheetName;
+            oSheet.Name = "Sheet1";
 
             // Tạo phần Tiêu đề
              Excel.Range head = oSheet.get_Range("A1", "E1");
 
             head.MergeCells = true;
 
-            head.Value2 = title;
+            head.Value2 = "Hóa đơn mua hàng";
 
             head.Font.Bold = true;
 
@@ -172,13 +172,41 @@ namespace BLL
             cl4.ColumnWidth = 10.5;
 
              Excel.Range cl5 = oSheet.get_Range("E5", "E5");
-
             cl5.Value2 = "Thành tiền";
-
             cl5.ColumnWidth = 15.5;
 
+            Excel.Range cl6 = oSheet.get_Range("A2", "A2");
+            cl6.Value2 = "Ngày";
 
-             Excel.Range rowHead = oSheet.get_Range("A5", "E5");
+            Excel.Range cl7 = oSheet.get_Range("B2", "B2");
+            cl7.Value2 = DateTime.Now.ToString(" dd/MM/yyyy hh:mm:ss tt");
+
+            Excel.Range cl8 = oSheet.get_Range("A3", "A3");
+            cl8.Value2 = "Tên Nhân Viên";
+
+            Excel.Range cl9 = oSheet.get_Range("B3", "B3");
+            cl9.Value2 = tenNV;
+
+            
+            Excel.Range cl10 = oSheet.get_Range("A"+(dataTable.Rows.Count+7).ToString(), "A"+ (dataTable.Rows.Count + 7).ToString());
+            cl10.Value2 = "Tổng tiền mua hàng";
+
+            Excel.Range cl11 = oSheet.get_Range("B" + (dataTable.Rows.Count + 7).ToString(), "B" + (dataTable.Rows.Count + 7).ToString());
+            cl11.Value2 = tongTienHang.ToString();
+
+            Excel.Range cl12 = oSheet.get_Range("A" + (dataTable.Rows.Count + 8).ToString(), "A" + (dataTable.Rows.Count + 8).ToString());
+            cl12.Value2 = "Tiền khách đưa";
+
+            Excel.Range cl13 = oSheet.get_Range("B" + (dataTable.Rows.Count + 8).ToString(), "B" + (dataTable.Rows.Count + 8).ToString());
+            cl13.Value2 = tienKhachDua.ToString();
+
+            Excel.Range cl14 = oSheet.get_Range("A" + (dataTable.Rows.Count + 9).ToString(), "A" + (dataTable.Rows.Count + 9).ToString());
+            cl14.Value2 = "Tiền thối lại";
+
+            Excel.Range cl15 = oSheet.get_Range("B" + (dataTable.Rows.Count + 9).ToString(), "B" + (dataTable.Rows.Count + 9).ToString());
+            cl15.Value2 = tienThoiLai.ToString();
+
+            Excel.Range rowHead = oSheet.get_Range("A5", "E5");
 
             rowHead.Font.Bold = true;
 
@@ -188,7 +216,7 @@ namespace BLL
 
             // Thiết lập màu nền
 
-            rowHead.Interior.ColorIndex = 6;
+            rowHead.Interior.ColorIndex = 8;
 
             rowHead.HorizontalAlignment =  Excel.XlHAlign.xlHAlignCenter;
 
